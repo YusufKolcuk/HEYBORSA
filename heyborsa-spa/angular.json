@@ -1,0 +1,164 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "heyborsa-spa": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/heyborsa-spa",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css",
+              "src/assets/src/css/master_style.css",
+              "src/assets/src/css/skins/_all-skins.css",
+              "src/assets/src/css/bootstrap-extend.css",
+              "https://www.amcharts.com/lib/3/plugins/export/export.css",
+              "src/assets/vendor_components/bootstrap/dist/css/bootstrap.css"
+            ],
+            "scripts": [
+              "src/assets/vendor_components/jquery/dist/jquery.js",
+              "src/assets/vendor_components/popper/dist/popper.min.js",
+              "src/assets/vendor_components/bootstrap/dist/js/bootstrap.js",
+              "src/assets/vendor_components/jquery-slimscroll/jquery.slimscroll.js",
+              "src/assets/vendor_components/fastclick/lib/fastclick.js",
+              "http://www.amcharts.com/lib/3/amcharts.js",
+              "http://www.amcharts.com/lib/3/gauge.js",
+              "http://www.amcharts.com/lib/3/serial.js",
+              "http://www.amcharts.com/lib/3/amstock.js",
+              "http://www.amcharts.com/lib/3/pie.js",
+              "http://www.amcharts.com/lib/3/plugins/animate/animate.min.js",
+              "http://www.amcharts.com/lib/3/plugins/export/export.min.js",
+              "http://www.amcharts.com/lib/3/themes/patterns.js",
+              "http://www.amcharts.com/lib/3/themes/light.js",
+              "src/assets/vendor_components/Web-Ticker-master/jquery.webticker.min.js",
+              "src/assets/vendor_components/echarts-master/dist/echarts-en.min.js",
+              "src/assets/vendor_components/echarts-liquidfill-master/dist/echarts-liquidfill.min.js",
+              "src/assets/vendor_plugins/DataTables-1.10.15/media/js/jquery.dataTables.min.js",
+              "src/assets/src/js/template.js",
+              "src/assets/src/js/pages/dashboard.js",
+              "src/assets/src/js/pages/dashboard-chart.js",
+              "src/assets/src/js/demo.js"
+            ],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "heyborsa-spa:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "heyborsa-spa:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "heyborsa-spa:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "heyborsa-spa-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "heyborsa-spa:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "heyborsa-spa:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "heyborsa-spa"
+}
