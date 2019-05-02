@@ -27,7 +27,7 @@
               "src/assets/src/css/master_style.css",
               "src/assets/src/css/skins/_all-skins.css",
               "src/assets/src/css/bootstrap-extend.css",
-              "https://www.amcharts.com/lib/3/plugins/export/export.css",
+              "src/assets/export.css",
               "src/assets/vendor_components/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
@@ -36,15 +36,15 @@
               "src/assets/vendor_components/bootstrap/dist/js/bootstrap.js",
               "src/assets/vendor_components/jquery-slimscroll/jquery.slimscroll.js",
               "src/assets/vendor_components/fastclick/lib/fastclick.js",
-              "http://www.amcharts.com/lib/3/amcharts.js",
-              "http://www.amcharts.com/lib/3/gauge.js",
-              "http://www.amcharts.com/lib/3/serial.js",
-              "http://www.amcharts.com/lib/3/amstock.js",
-              "http://www.amcharts.com/lib/3/pie.js",
-              "http://www.amcharts.com/lib/3/plugins/animate/animate.min.js",
-              "http://www.amcharts.com/lib/3/plugins/export/export.min.js",
-              "http://www.amcharts.com/lib/3/themes/patterns.js",
-              "http://www.amcharts.com/lib/3/themes/light.js",
+              "src/assets/chart/amcharts.js",
+              "src/assets/chart/gauge.js",
+              "src/assets/chart/serial.js",
+              "src/assets/chart/amstock.js",
+              "src/assets/chart/pie.js",
+              "src/assets/chart/animate.min.js",
+              "src/assets/chart/export.min.js",
+              "src/assets/chart/patterns.js",
+              "src/assets/chart/light.js",
               "src/assets/vendor_components/Web-Ticker-master/jquery.webticker.min.js",
               "src/assets/vendor_components/echarts-master/dist/echarts-en.min.js",
               "src/assets/vendor_components/echarts-liquidfill-master/dist/echarts-liquidfill.min.js",
@@ -52,7 +52,13 @@
               "src/assets/src/js/template.js",
               "src/assets/src/js/pages/dashboard.js",
               "src/assets/src/js/pages/dashboard-chart.js",
-              "src/assets/src/js/demo.js"
+              "src/assets/src/js/demo.js",
+              "src/assets/vendor_components/Flot/jquery.flot.js",
+              "src/assets/vendor_components/Flot/jquery.flot.resize.js",
+              "src/assets/vendor_components/Flot/jquery.flot.pie.js",
+              "src/assets/vendor_components/Flot/jquery.flot.categories.js",
+              "src/assets/src/js/pages/widget-flot-charts.js"
+
             ],
             "es5BrowserSupport": true
           },
