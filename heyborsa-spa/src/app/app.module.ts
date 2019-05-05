@@ -18,7 +18,9 @@ import { SorularimComponent } from './sorularim/sorularim.component';
 import { FavorilerimComponent } from './favorilerim/favorilerim.component';
 import { AltinComponent } from './altin/altin.component';
 import { SorularimicerikComponent } from './sorularimicerik/sorularimicerik.component';
-import { Market } from './entities/Market';
+import { Doviz } from './entities/Doviz';
+import { Altin } from './entities/Altin';
+import { Borsa } from './entities/Borsa';
 
 
 @NgModule({
