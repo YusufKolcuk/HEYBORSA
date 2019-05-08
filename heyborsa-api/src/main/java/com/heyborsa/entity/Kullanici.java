@@ -34,6 +34,9 @@ public class Kullanici {
 		this.aktif = aktif;
 		this.kullanici_tip = kullanici_tip;
 	}
+	public Kullanici() {
+		
+	}
 	public Long getId() {
 		return id;
 	}

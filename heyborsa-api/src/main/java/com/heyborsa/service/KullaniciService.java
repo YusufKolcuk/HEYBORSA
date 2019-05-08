@@ -13,8 +13,16 @@ public class KullaniciService {
 	@Autowired
 	KullaniciDAO kullaniciDAO;
 	
-	public Long insert(Kullanici kullanici)
+	public Long kayit(Kullanici kullanici)
 	{
 		return kullaniciDAO.insert(kullanici);
+	}
+	
+	public Kullanici getUserById(int id)
+	{
+		return kullaniciDAO.GetKullanici(id);
+	}
+	public Kullanici giris(String eposta,String parola) {
+		return kullaniciDAO.Giris(eposta,parola);
 	}
 }

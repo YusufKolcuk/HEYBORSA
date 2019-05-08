@@ -25,6 +25,9 @@ public class Altin {
 		this.satis_deger = satis_deger;
 		this.tarih = tarih;
 	}
+	public Altin() {
+		
+	}
 	public Long getId() {
 		return id;
 	}

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.heyborsa.entity.Kullanici;
+import com.heyborsa.helper.Encryption;
 
 @Repository
 public class KullaniciDAO {
@@ -36,11 +37,22 @@ public class KullaniciDAO {
 		return (Kullanici) query.getSingleResult();
 	}
 	
-	public Kullanici GetKullanici(String eposta,String sifre)
+	public Kullanici Giris(String eposta,String sifre)
 	{
+		sifre = Encryption.sha256(sifre);
 		Query query = sessionFactory.getCurrentSession().createQuery("FROM Kullanici WHERE eposta=:eposta AND sifre=:sifre")
 				.setString("eposta", eposta)
 				.setString("sifre",sifre);
-		return (Kullanici) query.getSingleResult();
+		Kullanici kullanici = null;
+		try {
+			kullanici = (Kullanici) query.getSingleResult();
+			kullanici.setSifre(null);
+			System.out.println("CEVAP VERÝLDÝ");
+			return kullanici;
+		}catch(javax.persistence.NoResultException e)
+		{
+			System.out.println("CEVAP VERÝLDÝ");
+			return kullanici;
+		}
 	}
 }

@@ -26,6 +26,9 @@ public class Doviz {
 		this.satis_deger = satis_deger;
 		this.tarih = tarih;
 	}
+	public Doviz() {
+		
+	}
 	
 	public Long getId() {
 		return id;

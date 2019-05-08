@@ -27,6 +27,9 @@ public class Borsa {
 		this.hacim = hacim;
 		this.tarih = tarih;
 	}
+	public Borsa() {
+		
+	}
 	public Long getId() {
 		return id;
 	}

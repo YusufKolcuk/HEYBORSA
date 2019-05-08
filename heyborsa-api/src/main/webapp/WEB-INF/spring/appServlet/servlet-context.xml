@@ -58,4 +58,5 @@
         <beans:property name="sessionFactory" ref="sessionFactory"/>
     </beans:bean>
     <tx:annotation-driven transaction-manager="hibernateTransactionManager"/>
+    
 </beans:beans>
