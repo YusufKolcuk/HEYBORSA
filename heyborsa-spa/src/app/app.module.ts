@@ -18,9 +18,11 @@ import { SorularimComponent } from './sorularim/sorularim.component';
 import { FavorilerimComponent } from './favorilerim/favorilerim.component';
 import { AltinComponent } from './altin/altin.component';
 import { SorularimicerikComponent } from './sorularimicerik/sorularimicerik.component';
+import { FormsModule } from '@angular/forms';
 import { Doviz } from './entities/Doviz';
 import { Altin } from './entities/Altin';
 import { Borsa } from './entities/Borsa';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -40,11 +42,13 @@ import { Borsa } from './entities/Borsa';
     SorularimComponent,
     FavorilerimComponent,
     AltinComponent,
-    SorularimicerikComponent
+    SorularimicerikComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
