@@ -15,11 +15,11 @@ public class Doviz {
 	private Long id;
 	
 	private String isim;
-	private int alis_deger;
-	private int satis_deger;
-	private Date tarih;
+	private float alis_deger;
+	private float satis_deger;
+	private String tarih;
 	
-	public Doviz(Long id, String isim, int alis_deger, int satis_deger, Date tarih) {
+	public Doviz(Long id, String isim, float alis_deger, float satis_deger, String tarih) {
 		this.id = id;
 		this.isim = isim;
 		this.alis_deger = alis_deger;
@@ -42,22 +42,22 @@ public class Doviz {
 	public void setIsim(String isim) {
 		this.isim = isim;
 	}
-	public int getAlis_deger() {
+	public float getAlis_deger() {
 		return alis_deger;
 	}
-	public void setAlis_deger(int alis_deger) {
+	public void setAlis_deger(float alis_deger) {
 		this.alis_deger = alis_deger;
 	}
-	public int getSatis_deger() {
+	public float getSatis_deger() {
 		return satis_deger;
 	}
-	public void setSatis_deger(int satis_deger) {
+	public void setSatis_deger(float satis_deger) {
 		this.satis_deger = satis_deger;
 	}
-	public Date getTarih() {
+	public String getTarih() {
 		return tarih;
 	}
-	public void setTarih(Date tarih) {
+	public void setTarih(String tarih) {
 		this.tarih = tarih;
 	}
 }
