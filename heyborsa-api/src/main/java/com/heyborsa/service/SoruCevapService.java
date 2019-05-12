@@ -22,10 +22,13 @@ public class SoruCevapService {
 	}
 	
 	public void delete(SoruCevap soruCevap) {
-		sorucevapDAO.delete(soruCevap);
-			}
-		public SoruCevap ReadByQuestionId(int questionid) {
-		return (SoruCevap) sorucevapDAO.readByQuestionId(questionid);
+		sorucevapDAO.delete(soruCevap);	
 	}
+	
+	public List<SoruCevap> ReadByQuestionId(int questionid) {
+		return (List<SoruCevap>) sorucevapDAO.readByQuestionId(questionid);
+	}
+	
+	
 }
 

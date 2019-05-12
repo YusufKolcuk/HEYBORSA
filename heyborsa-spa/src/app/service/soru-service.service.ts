@@ -23,4 +23,9 @@ export class SoruServiceService {
   {
     return this.httpClient.get(this.url + "getir/?id=" + id);
   }
+
+  kullaniciSoruCevaplariGetir(id)
+  {
+    return this.httpClient.get(this.url + "getircevap/?id=" + id);
+  }
 }

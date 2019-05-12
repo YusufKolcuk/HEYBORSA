@@ -32,118 +32,44 @@
                   <div id="chat-app" class="direct-chat-messages chat-app"
                     style="overflow: hidden; width: auto; height: 600px;">
                     <!-- Message. Default to the left -->
-                    <div class="direct-chat-msg mb-30">
-                      <div class="clearfix mb-15">
-                        <span class="direct-chat-name">Tom Crus</span>
-                        <span class="direct-chat-timestamp pull-right">April 14, 2017 18:00 </span>
+                    <div *ngFor="let cevap of soruCevap">
+                      <div *ngIf="cevap.fu_id != 0" class="direct-chat-msg mb-30">
+                        <div class="clearfix mb-15">
+                          <span class="direct-chat-name">{{cevap.fu_id}}</span>
+                          <span class="direct-chat-timestamp pull-right">{{cevap.tarih}} </span>
+                        </div>
+                        <!-- /.direct-chat-info -->
+                        <img class="direct-chat-img avatar" src="../../assets/images/user1-128x128.jpg"
+                          alt="message user image">
+                        <!-- /.direct-chat-img -->
+                        <div class="direct-chat-text">
+                         {{cevap.cevap}}
+                        </div>
+  
+                        <!-- /.direct-chat-text -->
                       </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img avatar" src="../../../images/user1-128x128.jpg"
-                        alt="message user image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        Conveniently reintermediate bleeding-edge metrics with unique initiatives. Credibly pontificate
-                        efficient relationships before corporate action items. Distinctively optimize interactive meta
-                        services.
+                      
+                      <div *ngIf="cevap.fu_id == 0" class="direct-chat-msg right mb-30">
+                        <div class="clearfix mb-15">
+                          <span class="direct-chat-name pull-right">{{cevap.fu_id}}</span>
+                          <span class="direct-chat-timestamp ">{{cevap.tarih}}</span>
+                        </div>
+                        <!-- /.direct-chat-info -->
+                        <img class="direct-chat-img avatar" src="../../assets/images/user3-128x128.jpg"
+                          alt="message user image">
+                        <!-- /.direct-chat-img -->
+                        <div class="direct-chat-text">
+                          {{cevap.cevap}}
+                        </div>
+                        <!-- /.direct-chat-text -->
                       </div>
-
-                      <!-- /.direct-chat-text -->
                     </div>
+                    
                     <!-- /.direct-chat-msg -->
 
                     <!-- Message to the right -->
-                    <div class="direct-chat-msg right mb-30">
-                      <div class="clearfix mb-15">
-                        <span class="direct-chat-name pull-right">Mili Lakhani</span>
-                        <span class="direct-chat-timestamp ">April 14, 2017 18:00</span>
-                      </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img avatar" src="../../../images/user3-128x128.jpg"
-                        alt="message user image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        Conveniently reintermediate bleeding-edge metrics with unique initiatives. Credibly pontificate
-                        efficient relationships before corporate action items. Distinctively optimize interactive meta
-                        services.
-                      </div>
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-
-                    <div class="direct-chat-msg mb-30">
-                      <div class="clearfix mb-15">
-                        <span class="direct-chat-name">Tom Crus</span>
-                        <span class="direct-chat-timestamp pull-right">April 14, 2017 18:00 </span>
-                      </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img avatar" src="../../../images/user1-128x128.jpg"
-                        alt="message user image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        Conveniently reintermediate bleeding-edge metrics with unique initiatives. Credibly pontificate
-                        efficient relationships before corporate action items. Distinctively optimize interactive meta
-                        services.
-                      </div>
-
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-
-                    <!-- Message to the right -->
-                    <div class="direct-chat-msg right mb-30">
-                      <div class="clearfix mb-15">
-                        <span class="direct-chat-name pull-right">Mili Lakhani</span>
-                        <span class="direct-chat-timestamp ">April 14, 2017 18:00</span>
-                      </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img avatar" src="../../../images/user3-128x128.jpg"
-                        alt="message user image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        Conveniently reintermediate bleeding-edge metrics with unique initiatives. Credibly pontificate
-                        efficient relationships before corporate action items. Distinctively optimize interactive meta
-                        services.
-                      </div>
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-
-                    <div class="direct-chat-msg mb-30">
-                      <div class="clearfix mb-15">
-                        <span class="direct-chat-name">Tom Crus</span>
-                        <span class="direct-chat-timestamp pull-right">April 14, 2017 18:00 </span>
-                      </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img avatar" src="../../../images/user1-128x128.jpg"
-                        alt="message user image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        Conveniently reintermediate bleeding-edge metrics with unique initiatives. Credibly pontificate
-                        efficient relationships before corporate action items. Distinctively optimize interactive meta
-                        services.
-                      </div>
-
-                      <!-- /.direct-chat-text -->
-                    </div>
-                    <!-- /.direct-chat-msg -->
-
-                    <!-- Message to the right -->
-                    <div class="direct-chat-msg right mb-30">
-                      <div class="clearfix mb-15">
-                        <span class="direct-chat-name pull-right">Mili Lakhani</span>
-                        <span class="direct-chat-timestamp ">April 14, 2017 18:00</span>
-                      </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img avatar" src="../../../images/user3-128x128.jpg"
-                        alt="message user image">
-                      <!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                        Conveniently reintermediate bleeding-edge metrics with unique initiatives. Credibly pontificate
-                        efficient relationships before corporate action items. Distinctively optimize interactive meta
-                        services.
-                      </div>
-                      <!-- /.direct-chat-text -->
-                    </div>
+                    
+                    
                     <!-- /.direct-chat-msg -->
 
                   </div>

@@ -19,8 +19,10 @@ import com.heyborsa.dto.LoginDTO;
 import com.heyborsa.dto.RegisterDTO;
 import com.heyborsa.dto.SoruDTO;
 import com.heyborsa.entity.Kullanici;
+import com.heyborsa.entity.SoruCevap;
 import com.heyborsa.entity.Sorular;
 import com.heyborsa.helper.Encryption;
+import com.heyborsa.service.SoruCevapService;
 import com.heyborsa.service.SorularService;
 
 @RestController
@@ -29,6 +31,9 @@ public class SorularController {
 	
 	@Autowired
 	private SorularService sorularService;
+	
+	@Autowired
+	private SoruCevapService soruCevapService;
 	
 	@CrossOrigin
 	@RequestMapping(value="/ekle",method = RequestMethod.POST)
@@ -53,6 +58,14 @@ public class SorularController {
 	public ResponseEntity<List<Sorular>> getir(@RequestParam("id") int id){
 		
 		return new ResponseEntity<List<Sorular>>(sorularService.ReadByUserId(id),HttpStatus.OK);
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value="/getircevap",method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<List<SoruCevap>> getircevap(@RequestParam("id") int id){
+		
+		return new ResponseEntity<List<SoruCevap>>(soruCevapService.ReadByQuestionId(id),HttpStatus.OK);
 	}	
 	
 }

@@ -26,13 +26,13 @@ public class SoruCevapDAO {
 	
 	public SoruCevap read(int id)
 	{
-		Query query = sessionFactory.getCurrentSession().createQuery("FROM SoruCevap WHERE id = :id").setInteger("id", id);
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM SoruCevap WHERE id=:id").setInteger("id", id);
 		return (SoruCevap) query.getSingleResult();
 	}
 	
 	public List<SoruCevap> readByQuestionId(int id)
 	{
-		Query query = sessionFactory.getCurrentSession().createQuery("FROM SoruCevap WHERE soru_id = : soru_id").setInteger("soru_id", id);
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM SoruCevap WHERE soru_id=:soru_id").setInteger("soru_id", id);
 		return (List<SoruCevap>) query.getResultList();
 	}
 	
