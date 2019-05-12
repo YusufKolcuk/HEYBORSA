@@ -32,6 +32,7 @@ public class CurrencyDAO {
 		}
 	}
 	
+	
 	public Doviz read(String dovizType)
 	{
 	

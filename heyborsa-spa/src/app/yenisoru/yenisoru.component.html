@@ -1,0 +1,72 @@
+<body class="hold-transition skin-yellow sidebar-mini">
+	<app-header></app-header>
+	<app-sidebar></app-sidebar>
+	<div class="wrapper">
+		<div class="content-wrapper">
+        
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6 col-12">
+    
+              <div class="box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Konu</h3>
+                </div>
+                <div class="box-body">
+                  <!-- Date dd/mm/yyyy -->
+                  <div class="form-group">
+                    <label>Konu</label>
+                        <select [(ngModel)]="konu" [ngModelOptions]="{standalone: true}" class="form-control select2 w-p100 select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                          <option value="doviz" selected="selected">Döviz</option>
+                          <option value="altin">Altın</option>
+                          <option value="borsa">Borsa</option>
+                          <option value="teknikdestek">Teknik Destek</option>  
+                        </select>
+                        </div>
+                   
+                  <div class="form-group">
+                    <label>Başlık</label>
+    
+                    <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                          <i class="fa fa-newspaper"></i>
+                </div>
+                      </div>
+                      <input [(ngModel)]="baslik" [ngModelOptions]="{standalone: true}" type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Soru</label>
+    
+                    <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                          <i class="fa fa-laptop"></i>
+                </div>
+                      </div>
+                      <textarea #textbox (change)="icerik = textbox.value" class="form-control" ></textarea>
+                    </div>
+                    <!-- /.input group -->
+                  </div>
+                  <!-- /.form group -->
+    
+                </div>
+
+                <div class="box-footer with-border">
+                    <a (click) ="ekle()" class="btn btn-app bg-green">
+                        <i class="fa fa-plus"></i>
+                        Soru Sor
+                      </a>
+                  </div>
+              </div>
+    
+            </div>
+           
+          </div>
+          
+    </div>
+
+  <app-footer></app-footer>
+  <app-control-sidebar></app-control-sidebar>
+</div>
+</body>

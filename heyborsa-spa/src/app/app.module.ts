@@ -23,6 +23,7 @@ import { Doviz } from './entities/Doviz';
 import { Altin } from './entities/Altin';
 import { Borsa } from './entities/Borsa';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { YenisoruComponent } from './yenisoru/yenisoru.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FavorilerimComponent,
     AltinComponent,
     SorularimicerikComponent,
+    YenisoruComponent,
   ],
   imports: [
     BrowserModule,

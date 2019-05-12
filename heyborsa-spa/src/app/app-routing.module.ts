@@ -11,6 +11,7 @@ import { SorularimComponent } from './sorularim/sorularim.component';
 import { FavorilerimComponent } from './favorilerim/favorilerim.component';
 import { AltinComponent } from './altin/altin.component';
 import { SorularimicerikComponent } from './sorularimicerik/sorularimicerik.component';
+import { YenisoruComponent } from './yenisoru/yenisoru.component';
 
 const routes: Routes = [
   {path:"",component:HomepageComponent,pathMatch:"full"},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path:"borsa",component:BorsaComponent},
   {path:"sorularim",component:SorularimComponent},
   {path:"sorularim/:id",component:SorularimicerikComponent},
-  {path:"favorilerim",component:FavorilerimComponent}
+  {path:"favorilerim",component:FavorilerimComponent},
+  {path:"yenisoru",component:YenisoruComponent},
   
 ];
 

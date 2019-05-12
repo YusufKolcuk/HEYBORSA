@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SoruServiceService } from '../service/soru-service.service';
 
 @Component({
   selector: 'app-sorularim',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SorularimComponent implements OnInit {
 
-  constructor() { }
+  sorularim : any;
+  constructor(private sorularimService:SoruServiceService) { }
 
   ngOnInit() {
+    this.sorularimService.kullaniciSorulariniGetir(4).subscribe(data=>{
+      this.sorularim = data;
+
+      console.log(data);
+    });
   }
 
 }

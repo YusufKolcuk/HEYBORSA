@@ -31,7 +31,7 @@
               "src/assets/vendor_components/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
-              "src/assets/vendor_components/jquery/dist/jquery.js",
+              "node_modules/jquery/dist/jquery.min.js",
               "src/assets/vendor_components/popper/dist/popper.min.js",
               "src/assets/vendor_components/bootstrap/dist/js/bootstrap.js",
               "src/assets/vendor_components/jquery-slimscroll/jquery.slimscroll.js",
@@ -50,7 +50,7 @@
               "src/assets/vendor_components/echarts-liquidfill-master/dist/echarts-liquidfill.min.js",
               "src/assets/vendor_plugins/DataTables-1.10.15/media/js/jquery.dataTables.min.js",
               "src/assets/src/js/template.js",
-              "src/assets/src/js/pages/dashboard.js",
+             
               "src/assets/src/js/pages/dashboard-chart.js",
               "src/assets/src/js/demo.js",
               "src/assets/vendor_components/Flot/jquery.flot.js",

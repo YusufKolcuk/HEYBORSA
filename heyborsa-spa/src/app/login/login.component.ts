@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       console.log(data);
       if(data != null)
         this.router.navigateByUrl("/");
-    })
+    });
   }
 
 }

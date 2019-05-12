@@ -5,12 +5,17 @@
 		<div class="content-wrapper">
 			<section class="content-header">
 				<h1>
-					Tickets
+					<a class="btn btn-app bg-green">
+						<i class="fa fa-plus"></i>
+						Soru Sor
+					</a>
 				</h1>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
 					<li class="breadcrumb-item"><a href="#">Examples</a></li>
-					<li class="breadcrumb-item active">Tickets</li>
+					<li class="breadcrumb-item active">Tickets 
+						
+					</li>
 				</ol>
 			</section>
 			<section class="content">
@@ -73,7 +78,7 @@
 													<th class="sorting" tabindex="0" aria-controls="tickets" rowspan="1"
 														colspan="1"
 														aria-label="Cust. Email: activate to sort column ascending">
-														Soru</th>
+														Başlık</th>
 													<th class="sorting" tabindex="0" aria-controls="tickets" rowspan="1"
 														colspan="1"
 														aria-label="Sbuject: activate to sort column ascending">Durum
@@ -90,16 +95,14 @@
 											<tbody>
 
 
-												<tr role="row" class="odd">
-													<td class="sorting_1">1011</td>
+												<tr *ngFor="let soru of sorularim" role="row" class="odd">
+													<td class="sorting_1">{{soru.id}}</td>
 													<td>
-														<a routerLink="/sorularim/1"><img
-																src="../../../images/avatar/1.jpg" alt="user"
-																class="avatar avatar-sm mr-5"> Mili Lakhani</a>
+														{{soru.konu}}
 													</td>
-													<td>genelia@gmail.com</td>
-													<td>How to customize the template?</td>
-													<td><span class="label label-warning">New</span> </td>
+													<td><a routerLink="/sorularim/{{soru.id}}">{{soru.baslik}}</a></td>
+													<td>{{soru.durum}}</td>
+													<td><span class="label label-warning">{{soru.tarih}}</span> </td>
 													<td>
 														<button type="button" class="btn btn-sm btn-danger-outline"
 															data-toggle="tooltip" data-original-title="Delete"><i
