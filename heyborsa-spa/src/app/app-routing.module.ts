@@ -5,13 +5,13 @@ import { RegisterComponent } from './register/register.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
-import { DovizComponent } from './doviz/doviz.component';
-import { BorsaComponent } from './borsa/borsa.component';
-import { SorularimComponent } from './sorularim/sorularim.component';
-import { FavorilerimComponent } from './favorilerim/favorilerim.component';
-import { AltinComponent } from './altin/altin.component';
-import { SorularimicerikComponent } from './sorularimicerik/sorularimicerik.component';
-import { YenisoruComponent } from './yenisoru/yenisoru.component';
+import { CurrencyComponent } from './currency/currency.component';
+import { ExchangeComponent } from './exchange/exchange.component';
+import { QuestionComponent } from './question/question.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { GoldComponent } from './gold/gold.component';
+import { QuestionContentComponent } from './question_content/question_content.component';
+import { NewQuestionComponent } from './newquestion/newquestion.component';
 
 const routes: Routes = [
   {path:"",component:HomepageComponent,pathMatch:"full"},
@@ -19,13 +19,13 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"resetpassword",component:ResetpasswordComponent},
 
-  {path:"doviz",component:DovizComponent},
-  {path:"altin",component:AltinComponent,},
-  {path:"borsa",component:BorsaComponent},
-  {path:"sorularim",component:SorularimComponent},
-  {path:"sorularim/:id",component:SorularimicerikComponent},
-  {path:"favorilerim",component:FavorilerimComponent},
-  {path:"yenisoru",component:YenisoruComponent},
+  {path:"currency",component:CurrencyComponent},
+  {path:"gold",component:GoldComponent,},
+  {path:"exchange",component:ExchangeComponent},
+  {path:"questions",component:QuestionComponent},
+  {path:"questions/:id",component:QuestionContentComponent},
+  {path:"favorites",component:FavoritesComponent},
+  {path:"newquestion",component:NewQuestionComponent},
   
 ];
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { KullaniciServisService } from '../kullanici-servis.service';
+import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,29 +8,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  isim : string;
-  soyisim: string;
-  parola: string;
-  parola_yeniden:string;
-  eposta:string;
-  telefon:string;
+  first_name : string;
+  last_name: string;
+  password: string;
+  password_again:string;
+  email:string;
+  telephone:string;
 
-  constructor(private kullaniciServis: KullaniciServisService,
+  constructor(private userService: UserService,
               private router: Router) { }
 
   ngOnInit() {
   }
 
-  kayit()
+  register()
   {
-    if(this.parola_yeniden == this.parola)
+    if(this.password_again == this.password)
     {
-      this.kullaniciServis.kayit({
-        isim : this.isim,
-        soyisim : this.soyisim,
-        eposta: this.eposta,
-        parola : this.parola,
-        telefon : this.telefon
+      this.userService.register({
+        first_name : this.first_name,
+        last_name : this.last_name,
+        email: this.email,
+        password : this.password,
+        telephone : this.telephone
       }).subscribe(data=>{
         if(data != null)
           this.router.navigateByUrl("/login");

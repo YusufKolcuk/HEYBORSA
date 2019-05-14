@@ -2,42 +2,40 @@ package com.heyborsa.dao;
 
 import java.util.ArrayList;
 
-import javax.persistence.NoResultException;
+
 import javax.persistence.Query;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.heyborsa.entity.Doviz;
-import com.heyborsa.financeapi.Moneys;
+import com.heyborsa.entity.Currency;
 
-import antlr.collections.List;
 
 @Repository
 public class CurrencyDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public Long insert(Doviz doviz)
+	public Long insert(Currency currency)
 	{
-		return (Long)sessionFactory.getCurrentSession().save(doviz);
+		return (Long)sessionFactory.getCurrentSession().save(currency);
 	}
 	
-	public void insert(ArrayList<Doviz> doviz)
+	public void insert(ArrayList<Currency> currency)
 	{
-		for(Doviz _doviz: doviz)
+		for(Currency _currency: currency)
 		{
-			sessionFactory.getCurrentSession().save(_doviz);
+			sessionFactory.getCurrentSession().save(_currency);
 		}
 	}
 	
 	
-	public Doviz read(String dovizType)
+	@SuppressWarnings("deprecation")
+	public Currency read(String currencyType)
 	{
-	
-			Query query = sessionFactory.getCurrentSession().createQuery("FROM Doviz WHERE isim=EURO ORDER BY tarih DESC");
-			
-			return (Doviz) query.getSingleResult();
+			Query query = sessionFactory.getCurrentSession().createQuery("FROM Currency WHERE name=:name ORDER BY date DESC")
+					.setString("name",currencyType);
+			return (Currency) query.getSingleResult();
 	}
 }

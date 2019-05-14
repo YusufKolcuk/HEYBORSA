@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { KullaniciServisService } from '../kullanici-servis.service';
+import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,18 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-   eposta:string = '';
-   parola:string = '';
-  constructor(private kullaniciServis: KullaniciServisService,
+   email:string = '';
+   password:string = '';
+  constructor(private userService: UserService,
               private router: Router) { }
-  kullanici:Kullanici;
   ngOnInit() {
   
   }
 
-  giris()
+  login()
   {
-    this.kullaniciServis.giris(this.eposta,this.parola).subscribe(data=>{
+    this.userService.login({
+              email : this.email,
+              password :this.password
+          }).subscribe(data=>{
+
       console.log(data);
       if(data != null)
         this.router.navigateByUrl("/");

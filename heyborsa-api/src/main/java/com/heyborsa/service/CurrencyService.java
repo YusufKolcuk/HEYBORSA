@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.heyborsa.dao.CurrencyDAO;
-import com.heyborsa.entity.Doviz;
+import com.heyborsa.entity.Currency;
 
 @Service
 @Transactional
@@ -15,17 +15,17 @@ public class CurrencyService {
 	@Autowired
 	private CurrencyDAO currencyDAO;
 	
-	public Long insert(Doviz doviz)
+	public Long insert(Currency currency)
 	{
-		return (Long) currencyDAO.insert(doviz);
+		return (Long) currencyDAO.insert(currency);
 	}
 	
-	public void insert(ArrayList<Doviz> doviz)
+	public void insert(ArrayList<Currency> currency)
 	{
-		currencyDAO.insert(doviz);
+		currencyDAO.insert(currency);
 	}
 	
-	public Doviz read(String type)
+	public Currency read(String type)
 	{
 		return currencyDAO.read(type);
 	}

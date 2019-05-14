@@ -12,18 +12,22 @@ import { RegisterComponent } from './register/register.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
-import { DovizComponent } from './doviz/doviz.component';
-import { BorsaComponent } from './borsa/borsa.component';
-import { SorularimComponent } from './sorularim/sorularim.component';
-import { FavorilerimComponent } from './favorilerim/favorilerim.component';
-import { AltinComponent } from './altin/altin.component';
-import { SorularimicerikComponent } from './sorularimicerik/sorularimicerik.component';
+import { CurrencyComponent } from './currency/currency.component';
+import { ExchangeComponent } from './exchange/exchange.component';
+import { QuestionComponent } from './question/question.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { GoldComponent } from './gold/gold.component';
+import { QuestionContentComponent } from './question_content/question_content.component';
 import { FormsModule } from '@angular/forms';
-import { Doviz } from './entities/Doviz';
-import { Altin } from './entities/Altin';
-import { Borsa } from './entities/Borsa';
+import { Currency } from './entities/Currency';
+import { Gold } from './entities/Gold';
+import { Exchange } from './entities/Exchange';
+import { User } from './entities/User';
+import { Favorite } from './entities/Favorite';
+import { Question } from './entities/Question';
+import { Answer } from './entities/Answer';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { YenisoruComponent } from './yenisoru/yenisoru.component';
+import { NewQuestionComponent } from './newquestion/newquestion.component';
 
 
 @NgModule({
@@ -38,13 +42,13 @@ import { YenisoruComponent } from './yenisoru/yenisoru.component';
     HomepageComponent,
     LoginComponent,
     ResetpasswordComponent,
-    DovizComponent,
-    BorsaComponent,
-    SorularimComponent,
-    FavorilerimComponent,
-    AltinComponent,
-    SorularimicerikComponent,
-    YenisoruComponent,
+    CurrencyComponent,
+    ExchangeComponent,
+    QuestionComponent,
+    FavoritesComponent,
+    GoldComponent,
+    QuestionContentComponent,
+    NewQuestionComponent,
   ],
   imports: [
     BrowserModule,
