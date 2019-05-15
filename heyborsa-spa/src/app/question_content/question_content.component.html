@@ -30,7 +30,7 @@
                 <!-- Conversations are loaded here -->
                 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 600px;">
                   <div id="chat-app" class="direct-chat-messages chat-app"
-                    style="overflow: hidden; width: auto; height: 600px;">
+                    style="width: auto; height: 600px;">
                     <!-- Message. Default to the left -->
                     <div *ngFor="let _answer of answer">
                       <div *ngIf="_answer.fu_id != 0" class="direct-chat-msg mb-30">
@@ -86,9 +86,9 @@
               <div class="box-footer">
                 <form action="#" method="post">
                   <div class="input-group">
-                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <input type="text" [(ngModel)]="message" [ngModelOptions]="{standalone: true}" name="message" placeholder="Type Message ..." class="form-control">
                     <span class="input-group-btn">
-                      <button type="submit" class="btn btn-warning">Send</button>
+                      <button (click) = "sendMessage()" class="btn btn-warning">Send</button>
                     </span>
                   </div>
                 </form>

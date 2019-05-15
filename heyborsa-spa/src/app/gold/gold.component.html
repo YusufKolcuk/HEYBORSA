@@ -24,20 +24,28 @@
               <div class="box-body no-padding">
                 <div class="table-responsive">
                   <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Altın</th>
+                            <th>Satış</th>
+                            <th>Alış</th>
+                            <th>Değişim</th>
+                            <th>Güncelleme</th>
+                            <th>Favori</th>
+                          </tr>
+                    </thead>
                     <tbody>
-                      <tr>
-                        <th>Altın</th>
-                        <th>Satış</th>
-                        <th>Alış</th>
-                        <th>Değişim</th>
-                        <th>Güncelleme</th>
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)"></a></td>
-                        <td> ₺</td>
-                        <td> ₺</td>
+                      
+                      <tr *ngFor = "let gold of data">
+                        <td>{{gold.name}}</td>
+                        <td> {{gold.selling_price}} ₺</td>
+                        <td> {{gold.buying_price}} ₺</td>
                         <td><span class="text-muted"><i class="fa fa-clock-o"></i> </span> </td>
-                        <td></td>
+                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> </span> </td>
+                        <td><label class="toggler toggler-danger font-size-16">
+                            <input type="checkbox" checked="">
+                            <i class="fa fa-heart"></i>
+                          </label></td>
 
                       </tr>
                       

@@ -22,4 +22,18 @@ export class QuestionService {
   {
     return this.httpClient.get(this.url + "getanswer/?id=" + id);
   }
+
+  addAnswerWithUser(message,question_id)
+  {
+    return this.httpClient.post(this.url + "addwithuser",
+    {
+      question_id : question_id,
+      message : message
+    });
+  }
+
+  getAnswerById(id)
+  {
+    return this.httpClient.get(this.url + "getanswerbyid/?id=" + id);
+  }
 }
