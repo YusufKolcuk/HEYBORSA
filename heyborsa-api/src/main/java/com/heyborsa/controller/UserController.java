@@ -38,6 +38,7 @@ public class UserController {
 	@RequestMapping(value = "/add",method = RequestMethod.POST)
 	@ResponseBody
 	public String home3(@RequestParam Map<String,String> request) {
+		
         return "home";
 	}
 	

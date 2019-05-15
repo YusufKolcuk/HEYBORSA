@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.heyborsa.dto.AnswerDTO;
 import com.heyborsa.dto.QuestionDTO;
 import com.heyborsa.entity.Answer;
 import com.heyborsa.entity.Question;
 import com.heyborsa.service.AnswerService;
 import com.heyborsa.service.QuestionService;
 
-@CrossOrigin
+
 @RestController
 @RequestMapping(value="/questions")
 public class QuestionController {
@@ -33,7 +33,7 @@ public class QuestionController {
 	@Autowired
 	private AnswerService answerService;
 	
-	
+	@CrossOrigin
 	@RequestMapping(value="/add",method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<Long> ekle(@RequestBody QuestionDTO questionDTO){
@@ -48,7 +48,7 @@ public class QuestionController {
 		return new ResponseEntity<Long>(questionService.insert(soru),HttpStatus.OK);
 	}
 	
-	
+	@CrossOrigin
 	@RequestMapping(value="/get",method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<List<Question>> get(@RequestParam("id") int id){
@@ -56,12 +56,35 @@ public class QuestionController {
 		return new ResponseEntity<List<Question>>(questionService.ReadByUserId(id),HttpStatus.OK);
 	}
 	
-	
+	@CrossOrigin
 	@RequestMapping(value="/getanswer",method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<List<Answer>> getanswer(@RequestParam("id") int id){
 		
 		return new ResponseEntity<List<Answer>>(answerService.ReadByQuestionId(id),HttpStatus.OK);
-	}	
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value="/addwithuser",method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<Long> sendAnswer(@RequestBody AnswerDTO answerDTO)
+	{
+		Date date=new Date(System.currentTimeMillis());
+		Answer answer = new Answer();
+		answer.setAnswer(answerDTO.getMessage());
+		answer.setFu_id(0l);
+		answer.setDate(date);
+		answer.setQuestion_id(answerDTO.getQuestion_id());
+		
+		return new ResponseEntity<Long>(answerService.addAnswerWithUser(answer),HttpStatus.OK);
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "getanswerbyid",method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<Answer> getAnswerById(@RequestParam("id") int id)
+	{
+		return new ResponseEntity<Answer>(answerService.getAnswerById(id),HttpStatus.OK);
+	}
 	
 }

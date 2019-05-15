@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.heyborsa.dao.AnswerDAO;
+import com.heyborsa.dto.AnswerDTO;
 import com.heyborsa.entity.Answer;
 @Service
 @Transactional
@@ -26,6 +27,16 @@ public class AnswerService {
 	
 	public List<Answer> ReadByQuestionId(int questionid) {
 		return (List<Answer>) answerDAO.readByQuestionId(questionid);
+	}
+	
+	public Long addAnswerWithUser(Answer answer)
+	{
+		return (Long) answerDAO.addAnswerWithUser(answer);
+	}
+	
+	public Answer getAnswerById(long id)
+	{
+		return (Answer) answerDAO.getAnswerById(id);
 	}
 	
 	
