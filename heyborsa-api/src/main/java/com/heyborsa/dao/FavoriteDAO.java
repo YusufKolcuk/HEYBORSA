@@ -8,6 +8,7 @@ import javax.persistence.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.heyborsa.dto.FavoriteDTO;
 import com.heyborsa.entity.Favorite;
@@ -29,6 +30,20 @@ public class FavoriteDAO {
 			return _favorites;
 		}catch(NoResultException e)
 		{
+			return _favorites;
+		}
+	}
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public List<Favorite> GetFavoriteByUserId(Long id)
+	{
+		List<Favorite> _favorites = null;
+		try {
+			Query query = sessionFactory.getCurrentSession().createQuery("FROM Favorite WHERE user_id=:user_id")
+				.setLong("user_id", id);
+				_favorites = query.getResultList();
+				return _favorites;	
+		}catch(NoResultException e) {
 			return _favorites;
 		}
 	}

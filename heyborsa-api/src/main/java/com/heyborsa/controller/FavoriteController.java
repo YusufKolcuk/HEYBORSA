@@ -57,4 +57,12 @@ public class FavoriteController {
 		favoriteService.RemoveFavorite(favoriteProccessDTO);
 		return new ResponseEntity(HttpStatus.OK);
 	}
+	
+	@CrossOrigin
+	@RequestMapping(value="/getall",method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<List<Favorite>> getAll(@RequestParam Long id)
+	{
+		return new ResponseEntity<List<Favorite>>(favoriteService.GetFavoriteByUserId(id),HttpStatus.OK);
+	}
 }

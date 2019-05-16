@@ -1,14 +1,15 @@
 <body class="hold-transition skin-yellow sidebar-mini">
   <app-header></app-header>
   <app-sidebar></app-sidebar>
+
   <div class="wrapper">
     <div class="content-wrapper">
       <section class="content">
         <div class="row">
-          <div class="col-12">
+          <div class="offset-lg-2 col-9">
             <div class="box">
               <div class="box-header with-border">
-                <h3 class="box-title">DÖVİZ</h3>
+                <h3 class="box-title">FAVORİLER</h3>
 
                 <div class="box-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -27,132 +28,16 @@
                     <tbody>
                       <tr>
                         <th>Kur Adı</th>
-                        <th>Alış</th>
-                        <th>Satış</th>
-                        <th>Değişim</th>
-                        <th>Güncelleme</th>
+                        <th>Tarih</th>
+                        <th>Sil</th>
                       </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #123456</a></td>
-                        <td>Lorem Ipsum</td>
+                      <tr *ngFor="let currency of currencyData">
+                        <td>{{currency.favorite_data}}</td>
+                        <td>{{currency.created_time}}</td>
                         <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
                         <td>$158.00</td>
-                        <td><span class="label label-danger">Pending</span></td>
-
                       </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #458789</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$55.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #458789</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$55.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #458789</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$55.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #458789</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$55.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #458789</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$55.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #458789</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$55.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #458789</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$55.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #458789</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$55.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #458789</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$55.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #458789</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$55.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #458789</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$55.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
-                      </tr>
-
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #84532</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$845.00</td>
-                        <td><span class="label label-danger">Prossing</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #48956</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$145.00</td>
-                        <td><span class="label label-success">Paid</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #92154</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$450.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
-                      </tr>
+            
                     </tbody>
                   </table>
                 </div>
@@ -162,15 +47,16 @@
             <!-- /.box -->
           </div>
         </div>
-      </section>
-    </div>
+      
+    
 
-  </div>
-  <div class="wrapper">
-    <div class="content-wrapper">
-      <section class="content">
+
+  
+  
+  
+     
         <div class="row">
-          <div class="col-12">
+          <div class="offset-lg-2 col-9">
             <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">ALTIN</h3>
@@ -192,45 +78,15 @@
                     <tbody>
                       <tr>
                         <th>Altın</th>
-                        <th>Satış</th>
-                        <th>Değişim</th>
-                        <th>Güncelleme</th>
+                        <th>Tarih</th>
+                        <th>Sil</th>
                       </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #123456</a></td>
-                        <td>Lorem Ipsum</td>
+                      <tr *ngFor="let gold of goldData">
+                        <td>{{gold.favorite_data}}</td>
+                        <td>{{gold.created_time}}</td>
                         <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$158.00</td>
-
                       </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #458789</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$55.00</td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #84532</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$845.00</td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #48956</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$145.00</td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #92154</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                        <td>$450.00</td>
-
-                      </tr>
+                     
                     </tbody>
                   </table>
                 </div>
@@ -240,15 +96,14 @@
             <!-- /.box -->
           </div>
         </div>
-      </section>
-    </div>
+     
+    
+ 
 
-  </div>
-  <div class="wrapper">
-    <div class="content-wrapper">
-      <section class="content">
+
+
         <div class="row">
-          <div class="col-12">
+          <div class="offset-lg-2 col-9">
             <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">BORSA</h3>
@@ -270,55 +125,14 @@
                     <tbody>
                       <tr>
                         <th>Hisse Adı</th>
-                        <th>Değer</th>
-                        <th>Değişim</th>
-                        <th>Hacim (TL)</th>
-                        <th>Güncelleme</th>
+                        <th>Tarih</th>
+                        <th>Sil</th>
                       </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #123456</a></td>
-                        <td>Lorem Ipsum</td>
+                      <tr *ngFor="let exchange of exchangeData">
+                        <td>{{exchange.favorite_data}}</td>
+                        <td>{{exchange.created_time}}</td>
                         <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16,
                             2017</span> </td>
-                        <td>$158.00</td>
-                        <td><span class="label label-danger">Pending</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #458789</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16,
-                            2017</span> </td>
-                        <td>$55.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #84532</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16,
-                            2017</span> </td>
-                        <td>$845.00</td>
-                        <td><span class="label label-danger">Prossing</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #48956</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16,
-                            2017</span> </td>
-                        <td>$145.00</td>
-                        <td><span class="label label-success">Paid</span></td>
-
-                      </tr>
-                      <tr>
-                        <td><a href="javascript:void(0)">Order #92154</a></td>
-                        <td>Lorem Ipsum</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16,
-                            2017</span> </td>
-                        <td>$450.00</td>
-                        <td><span class="label label-warning">Shipped</span></td>
-
                       </tr>
                     </tbody>
                   </table>
@@ -331,11 +145,11 @@
         </div>
       </section>
     </div>
+  </div>
+ 
+
 
     <app-footer></app-footer>
     <app-control-sidebar></app-control-sidebar>
-  </div>
-
-
 
 </body>

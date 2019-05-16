@@ -14,6 +14,10 @@ export class MarketService {
     return this.httpClient.get(this.url);
   }
 
+  getAllFavoritesByUserId(id){
+    return this.httpClient.get(this.spring_url + "getall/?id=" +id);
+  }
+
   checkFavorites(data:any)
   {
     return this.httpClient.get(this.spring_url + "checkmultiple",data)

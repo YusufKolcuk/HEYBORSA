@@ -34,4 +34,9 @@ public class FavoriteService {
 	{
 		return (Long) favoriteDAO.AddFavorite(favorite);
 	}
+	
+	public List<Favorite> GetFavoriteByUserId(Long id)
+	{
+		return (List<Favorite>) favoriteDAO.GetFavoriteByUserId(id);
+	}
 }
