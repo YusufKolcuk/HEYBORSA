@@ -1,5 +1,7 @@
 package com.heyborsa.dao;
 
+import java.util.Base64;
+
 import javax.persistence.Query;
 
 import org.hibernate.SessionFactory;
@@ -8,7 +10,8 @@ import org.springframework.stereotype.Repository;
 
 import com.heyborsa.dto.LoginDTO;
 import com.heyborsa.entity.User;
-import com.heyborsa.helper.Encryption;
+import com.heyborsa.security.Encryption;
+import com.mysql.cj.util.Base64Decoder;
 
 @Repository
 public class UserDAO {
@@ -47,11 +50,12 @@ public class UserDAO {
 		User user = null;
 		try {
 			user = (User) query.getSingleResult();
-			user.setPassword(null);
 			return user;
 		}catch(javax.persistence.NoResultException e)
 		{
 			return user;
 		}
 	}
+	
+	
 }

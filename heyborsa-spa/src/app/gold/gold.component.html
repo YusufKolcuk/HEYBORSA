@@ -31,7 +31,7 @@
                             <th>Alış</th>
                             <th>Değişim</th>
                             <th>Güncelleme</th>
-                            <th>Favori</th>
+                            <th *ngIf="isLogged">Favori</th>
                           </tr>
                     </thead>
                     <tbody>
@@ -42,7 +42,7 @@
                         <td> {{gold.buying_price}} ₺</td>
                         <td><span class="text-muted"><i class="fa fa-clock-o"></i> </span> </td>
                         <td><span class="text-muted"><i class="fa fa-clock-o"></i> </span> </td>
-                        <td><label class="toggler toggler-danger font-size-16">
+                        <td *ngIf="isLogged"><label class="toggler toggler-danger font-size-16">
                           <input (click)="removeFavorite(gold.name,gold.favoriteId)" *ngIf="gold.isFavorite==1" type="checkbox" checked="">
                           <input (click)="addFavorite(gold.name)" *ngIf="gold.isFavorite==0" type="checkbox">
                             <i class="fa fa-heart"></i>

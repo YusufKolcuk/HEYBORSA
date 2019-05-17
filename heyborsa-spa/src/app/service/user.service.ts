@@ -9,7 +9,13 @@ export class UserService {
   constructor(private httpClient : HttpClient) { }
    
   login(data:any){
-      return this.httpClient.post(this.url + "login",data);
+    const headers = new HttpHeaders({ Authorization:btoa(data.email + ':' + data.password) });
+      return this.httpClient.post(this.url + "login",data,{headers});
+  }
+
+  validate(token)
+  {
+      return this.httpClient.get(this.url + "validate?token="+token);
   }
 
   register(data:any)

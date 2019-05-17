@@ -11738,11 +11738,14 @@ table.dataTable thead .sorting:after {
 .login-logo, .register-logo {
     font-size: 35px;
     text-align: center;
-    margin-bottom: 25px;
+    
+    margin-bottom: 10px;
     font-weight: 300;
 }
+
+
 .login-page, .register-page {
-    background: url(../../images/login-register.jpg) center center no-repeat #d2d6de;
+    background: url(../../images/login.jpg) center center no-repeat #d2d6de;
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -11755,7 +11758,6 @@ table.dataTable thead .sorting:after {
     float: right;
     height: 100%;
     background-color: #fff;
-	    overflow-y: scroll;
 }
 .login-box .fog-pwd {
     position: relative;

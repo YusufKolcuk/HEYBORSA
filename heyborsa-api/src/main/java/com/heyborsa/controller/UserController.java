@@ -1,12 +1,15 @@
 package com.heyborsa.controller;
 
 
+import java.util.Base64;
 import java.util.Date;
 import java.util.Map;
 
-
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -22,8 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.heyborsa.dto.LoginDTO;
 import com.heyborsa.dto.RegisterDTO;
 import com.heyborsa.entity.User;
-import com.heyborsa.helper.Encryption;
-
+import com.heyborsa.security.Encryption;
 import com.heyborsa.service.UserService;
 
 
@@ -76,6 +78,24 @@ public class UserController {
 	@ResponseBody
 	public ResponseEntity<User> login(@RequestBody LoginDTO loginDTO){
 		return new ResponseEntity<User>(userService.login(loginDTO),HttpStatus.OK);
-	}	
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value="/validate",method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<User> Validate(@RequestParam String token)
+	{
+		byte[] decodingToken = Base64.getDecoder().decode(token);
+		String decodingString = new String(decodingToken);
+		String[] datas = decodingString.split(":");
+		String email = datas[0];
+		String password = datas[1];
+		LoginDTO loginDTO = new LoginDTO();
+		loginDTO.setEmail(email);
+		loginDTO.setPassword(password);
+		return new ResponseEntity<User>(userService.login(loginDTO),HttpStatus.OK);
+	}
+	
+	 
 }
  

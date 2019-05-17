@@ -33,7 +33,7 @@
                                                 <th>Değişim</th>
                                                 <th>Hacim (TL)</th>
                                                 <th>Güncelleme</th>
-                                                <th>Favori</th>
+                                                <th *ngIf="isLogged">Favori</th>
                                             </tr>
                                             <tr *ngFor="let _exchange of data">
                                                 <td>{{_exchange.name}}</td>
@@ -41,7 +41,7 @@
                                                 <td>{{_exchange.change}} </td>
                                                 <td>{{_exchange.volume}}</td>
                                                 <td><span class="label label-danger">Pending</span></td>
-                                                <th><label class="toggler toggler-danger font-size-16">
+                                                <th *ngIf="isLogged"><label class="toggler toggler-danger font-size-16">
                                                     <input (click)="removeFavorite(_exchange.name,_exchange.favoriteId)" *ngIf="_exchange.isFavorite==1" type="checkbox" checked="">
                                                     <input (click)="addFavorite(_exchange.name)" *ngIf="_exchange.isFavorite==0" type="checkbox" >
                                                       <i class="fa fa-heart"></i>

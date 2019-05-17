@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MarketService } from '../service/market.service';
+import { UserService } from '../service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-currency',
@@ -11,9 +13,26 @@ export class CurrencyComponent implements OnInit {
   base:any;
   currencies:any = [];
   favorites:any = [];
-  constructor(private marketService:MarketService) { }
+  user:any;
+  token:any;
+  isLogged:any;
+  constructor(private marketService:MarketService,
+              private userService:UserService,
+              private router:Router) { }
   
   ngOnInit() {
+
+    this.token = localStorage.getItem("Token");
+    this.isLogged = false;
+    if (this.token != null) {
+        this.userService.validate(this.token).subscribe(data=>{
+          this.user = data;
+          this.isLogged = true;
+          
+        });
+    }
+
+
     this.marketService.getAll().subscribe(data=>{
       this.currency = data;
       this.currency = this.currency.rates;
@@ -21,7 +40,7 @@ export class CurrencyComponent implements OnInit {
       
       this.marketService.checkFavoritesByFavoriteType(
         {
-          user_id : 1,
+          user_id : this.user.id,
           favorite_type : "currency"
         }
       ).subscribe(data=>{
@@ -59,23 +78,22 @@ export class CurrencyComponent implements OnInit {
     this.marketService.addFavorite({
       favorite_type:"currency",
       favorite_data:currencyName,
-      user_id:1,
+      user_id:this.user.id,
     }).subscribe(data=>{
-      console.log(data);
+      this.router.navigateByUrl("/favorites");
     });
     
   }
 
   removeFavorite(currencyName,id)
   {
-    console.log(id);
     this.marketService.removeFavorite({
-      user_id:1,
+      user_id:this.user.id,
       favorite_type:"currency",
       favorite_data:currencyName,
       id:id
   }).subscribe(data=>{
-
+    
   });
   }
 

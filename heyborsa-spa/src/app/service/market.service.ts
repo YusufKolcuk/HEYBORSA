@@ -35,7 +35,6 @@ export class MarketService {
 
   removeFavorite(data:any)
   {
-    console.log(data);
     return this.httpClient.post(this.spring_url + "removefavorite",data);
   }
 }
