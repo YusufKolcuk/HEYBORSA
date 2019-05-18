@@ -38,34 +38,49 @@ export class CurrencyComponent implements OnInit {
       this.currency = this.currency.rates;
       this.base = this.currency["TRY"];
       
-      this.marketService.checkFavoritesByFavoriteType(
-        {
-          user_id : this.user.id,
-          favorite_type : "currency"
+      if(this.isLogged == true)
+      {
+        this.marketService.checkFavoritesByFavoriteType(
+          {
+            user_id : this.user.id,
+            favorite_type : "currency"
+          }
+        ).subscribe(data=>{
+          this.favorites = data;
+          
+          for(let i=0;i<Object.keys(this.currency).length;i++)
+          {
+            let isFavorite = 0;
+            let favoriteId = 0;
+            let _favorite = this.favorites.filter(favorite => (favorite.favorite_data == Object.keys(this.currency)[i]));
+              if(_favorite.length == 1){
+                isFavorite = 1;
+                favoriteId = _favorite[0].id;
+  
+              }
+            this.currencies.push(
+              {
+                "currencyname" : Object.keys(this.currency)[i],
+                "value" : this.base / this.currency[Object.keys(this.currency)[i]],
+                "isFavorite" : isFavorite,//0
+                "id" : favoriteId
+              }
+            )    
         }
-      ).subscribe(data=>{
-        this.favorites = data;
-        
-        for(let i=0;i<Object.keys(this.currency).length;i++)
-        {
-          let isFavorite = 0;
-          let favoriteId = 0;
-          let _favorite = this.favorites.filter(favorite => (favorite.favorite_data == Object.keys(this.currency)[i]));
-            if(_favorite.length == 1){
-              isFavorite = 1;
-              favoriteId = _favorite[0].id;
-
-            }
-          this.currencies.push(
-            {
-              "currencyname" : Object.keys(this.currency)[i],
-              "value" : this.base / this.currency[Object.keys(this.currency)[i]],
-              "isFavorite" : isFavorite,//0
-              "id" : favoriteId
-            }
-          )    
+        });
       }
-      });
+      else{
+        for(let i=0;i<Object.keys(this.currency).length;i++)
+          {
+            this.currencies.push(
+              {
+                "currencyname" : Object.keys(this.currency)[i],
+                "value" : this.base / this.currency[Object.keys(this.currency)[i]],
+              }
+            )    
+        }
+      }
+      
 
       
 

@@ -28,14 +28,17 @@
               "src/assets/src/css/skins/_all-skins.css",
               "src/assets/src/css/bootstrap-extend.css",
               "src/assets/export.css",
-              "src/assets/vendor_components/bootstrap/dist/css/bootstrap.css"
+              "src/assets/vendor_components/bootstrap/dist/css/bootstrap.css",
+              "src/assets/vendor_components/select2/dist/css/select2.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "src/assets/vendor_components/popper/dist/popper.min.js",
-              "src/assets/vendor_components/bootstrap/dist/js/bootstrap.js",
+              "src/assets/vendor_components/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/vendor_components/select2/dist/js/select2.full.js",
               "src/assets/vendor_components/jquery-slimscroll/jquery.slimscroll.js",
               "src/assets/vendor_components/fastclick/lib/fastclick.js",
+              
               "src/assets/chart/amcharts.js",
               "src/assets/chart/gauge.js",
               "src/assets/chart/serial.js",
@@ -57,7 +60,8 @@
               "src/assets/vendor_components/Flot/jquery.flot.resize.js",
               "src/assets/vendor_components/Flot/jquery.flot.pie.js",
               "src/assets/vendor_components/Flot/jquery.flot.categories.js",
-              "src/assets/src/js/pages/widget-flot-charts.js"
+              "src/assets/src/js/pages/widget-flot-charts.js",
+              
 
             ],
             "es5BrowserSupport": true

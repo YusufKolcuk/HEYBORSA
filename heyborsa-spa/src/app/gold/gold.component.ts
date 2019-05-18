@@ -40,7 +40,7 @@ export class GoldComponent implements OnInit {
         "favoriteId": 0
       },
       {
-        "name": "CUMHURİYET ALTIN",
+        "name": "TAM ALTIN",
         "selling_price": "827",
         "buying_price": "806",
         "date": "111",
@@ -48,7 +48,7 @@ export class GoldComponent implements OnInit {
         "favoriteId": 0
       },
       {
-        "name": "CUMHURİYET ALTIN",
+        "name": "CUMHURIYET ALTIN",
         "selling_price": "1700",
         "buying_price": "1675",
         "date": "111",

@@ -43,14 +43,23 @@ export class HomeComponent implements OnInit {
       'info'        : false,
       'autoWidth'   : false
     });
+
+    
+      if ($('.coins-exchange').length) {
+        $('.coins-exchange').select2();
+    }
+    if ($('.money-exchange').length) {
+        $('.money-exchange').select2();
+    }
+ 
   }
 
   prepareData()
   {
     this.bistValue="95.850";
     this.goldValue=[
-      {name : "Gram Altın", value:"250.39"},
-      {name : "Çeyrek Altın",value:"398.95"}
+      {name : "Gram Altın", value:"250.39",icon:"fas fa-coins"},
+      {name : "Çeyrek Altın",value:"398.95",icon:"fas fa-coins"}
     ];
 
     this.bist=[
@@ -67,20 +76,24 @@ export class HomeComponent implements OnInit {
       this.base = this.data["TRY"];
       this.specifiedData = [
         {
-          name : "USD",
-          value :  this.base / this.data["USD"] 
+          name : "DOLAR",
+          value :  this.base / this.data["USD"],
+          icon:"fa fa-dollar"
         },
         {
-          name : "EUR",
-          value : this.base /  this.data["EUR"] 
+          name : "EURO",
+          value : this.base /  this.data["EUR"] ,
+          icon:"fa fa-euro"
         },
         {
-          name : "GBP",
-          value : this.base /  this.data["GBP"] 
+          name : "POUND",
+          value : this.base /  this.data["GBP"],
+          icon:"fa fa-gbp"
         },
         {
-          name : "RUB",
-          value : this.base /  this.data["RUB"]
+          name : "JAPON YENİ",
+          value : this.base /  this.data["JPY"],
+          icon : "fa fa-yen"
         },
       ];
 
