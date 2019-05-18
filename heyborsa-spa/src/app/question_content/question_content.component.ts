@@ -14,18 +14,19 @@ export class QuestionContentComponent implements OnInit {
   public message:any;
   constructor(private questionService:QuestionService,
               private router:Router) { }
-  
+  url:any;
   ngOnInit() {
-    this.questionService.getAnswersByQuestionId(1).subscribe(data=>{
+     this.url = this.router.url;
+    this.url = this.url.substring(11);
+    this.questionService.getAnswersByQuestionId(this.url).subscribe(data=>{
       this.answer = data;
     });
   }
 
   sendMessage()
   {
-    let url = this.router.url;
-    url = url.substring(11);
-    this.questionService.addAnswerWithUser(this.message,url).subscribe(data=>{
+    
+    this.questionService.addAnswerWithUser(this.message,this.url).subscribe(data=>{
       console.log(data);
       let _answer;
       this.questionService.getAnswerById(data).subscribe(_data=>{

@@ -32,8 +32,29 @@ export class QuestionService {
     });
   }
 
+  addAnswerWithFu(message,question_id)
+  {
+    return this.httpClient.post(this.url + "addwithfu",
+    {
+      question_id : question_id,
+      message : message
+    });
+  }
+
+  
+
   getAnswerById(id)
   {
     return this.httpClient.get(this.url + "getanswerbyid/?id=" + id);
+  }
+
+  getAll()
+  {
+    return this.httpClient.get(this.url + "getall");
+  }
+
+  getAllOpenedQuestions()
+  {
+    return this.httpClient.get(this.url + "getopenedquestions");
   }
 }

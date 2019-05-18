@@ -1,0 +1,128 @@
+<body class="hold-transition skin-yellow sidebar-mini">
+	<app-header></app-header>
+	<app-sidebar></app-sidebar>
+	<div class="wrapper">
+		<div class="content-wrapper">
+			<section class="content-header">
+				<h1>
+					<a routerLink="/newquestion" class="btn btn-app bg-green">
+						<i class="fa fa-plus"></i>
+						Soru Sor
+					</a>
+				</h1>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+					<li class="breadcrumb-item"><a href="#">Examples</a></li>
+					<li class="breadcrumb-item active">Tickets 
+						
+					</li>
+				</ol>
+			</section>
+			<section class="content">
+
+				<div class="row">
+					<!-- Column -->
+					<div class="col-md-6 col-lg-3 col-xlg-3">
+						<div class="box box-inverse box-info pull-up bg-hexagons-dark">
+							<div class="box-body text-center">
+								<h1 class="font-light text-white">2,064</h1>
+								<h6 class="text-white mb-10">Sorularım</h6>
+							</div>
+						</div>
+					</div>
+					<!-- Column -->
+					<div class="col-md-6 col-lg-3 col-xlg-3">
+						<div class="box box-success box-inverse pull-up bg-hexagons-dark">
+							<div class="box-body text-center">
+								<h1 class="font-light text-white">1,738</h1>
+								<h6 class="text-white mb-10">Cevaplanmış</h6>
+							</div>
+						</div>
+					</div>
+					<!-- Column -->
+					<div class="col-md-6 col-lg-3 col-xlg-3">
+						<div class="box box-inverse box-danger pull-up bg-hexagons-dark">
+							<div class="box-body text-center">
+								<h1 class="font-light text-white">1100</h1>
+								<h6 class="text-white mb-10">Çözülmüş</h6>
+							</div>
+						</div>
+					</div>
+					<!-- Column -->
+					<div class="col-md-6 col-lg-3 col-xlg-3">
+						<div class="box box-inverse box-dark pull-up bg-hexagons-white">
+							<div class="box-body text-center">
+								<h1 class="font-light text-white">964</h1>
+								<h6 class="text-white mb-10">Cevap Bekleniyor</h6>
+							</div>
+						</div>
+					</div>
+					<!-- Column -->
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="box">
+							<div class="box-body">
+								<div class="table-responsive">
+									<div id="tickets_wrapper" class="dataTables_wrapper no-footer">
+										<table id="tickets" class="table mt-0 table-hover no-wrap dataTable no-footer"
+											data-page-size="10" role="grid" aria-describedby="tickets_info">
+											<thead>
+												<tr class="bg-light" role="row">
+													<th class="sorting_asc" tabindex="0" aria-controls="tickets"
+														rowspan="1" colspan="1" aria-sort="ascending"
+														aria-label="ID #: activate to sort column descending">ID #</th>
+													<th class="sorting" tabindex="0" aria-controls="tickets" rowspan="1"
+														colspan="1"
+														aria-label="Opened By: activate to sort column ascending">Konu</th>
+													<th class="sorting" tabindex="0" aria-controls="tickets" rowspan="1"
+														colspan="1"
+														aria-label="Cust. Email: activate to sort column ascending">
+														Başlık</th>
+													<th class="sorting" tabindex="0" aria-controls="tickets" rowspan="1"
+														colspan="1"
+														aria-label="Sbuject: activate to sort column ascending">Durum
+													</th>
+													<th class="sorting" tabindex="0" aria-controls="tickets" rowspan="1"
+														colspan="1"
+														aria-label="Status: activate to sort column ascending">Tarih
+													</th>
+													<th class="sorting" tabindex="0" aria-controls="tickets" rowspan="1"
+														colspan="1"
+														aria-label="Assign to: activate to sort column ascending">Silme</th>
+												</tr>
+											</thead>
+											<tbody>
+
+
+												<tr *ngFor="let question of openedQuestions" role="row" class="odd">
+													<td class="sorting_1">{{question.id}}</td>
+													<td>
+														{{question.subject}}
+													</td>
+													<td><a routerLink="/fu-panel/question/{{question.id}}">{{question.header}}</a></td>
+													<td>{{question.status}}</td>
+													<td><span class="label label-warning">{{question.date}}</span> </td>
+													<td>
+														<button type="button" class="btn btn-sm btn-danger-outline"
+															data-toggle="tooltip" data-original-title="Delete"><i
+																class="ti-trash" aria-hidden="true"></i></button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /.row -->
+
+			</section>
+			<!-- /.content -->
+		</div>
+		<app-footer></app-footer>
+		<app-control-sidebar></app-control-sidebar>
+	</div>
+</body>

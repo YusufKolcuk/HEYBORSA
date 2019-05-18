@@ -28,6 +28,8 @@ import { Question } from './entities/Question';
 import { Answer } from './entities/Answer';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NewQuestionComponent } from './newquestion/newquestion.component';
+import { FuPanelComponent } from './fu-panel/fu-panel.component';
+import { FuPanelContentComponent } from './fu-panel-content/fu-panel-content.component';
 
 
 @NgModule({
@@ -49,6 +51,8 @@ import { NewQuestionComponent } from './newquestion/newquestion.component';
     GoldComponent,
     QuestionContentComponent,
     NewQuestionComponent,
+    FuPanelComponent,
+    FuPanelContentComponent,
   ],
   imports: [
     BrowserModule,
