@@ -1,5 +1,6 @@
 package com.heyborsa.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.heyborsa.dao.FavoriteProccessDTO;
 import com.heyborsa.dto.FavoriteDTO;
+import com.heyborsa.dto.FavoriteProccessDTO;
 import com.heyborsa.entity.Favorite;
 import com.heyborsa.service.FavoriteService;
 
@@ -46,6 +47,7 @@ public class FavoriteController {
 	@ResponseBody
 	public ResponseEntity<Long> addFavorite(@RequestBody Favorite favorite)
 	{
+		favorite.setCreated_time(new Date(System.currentTimeMillis()));
 		return new ResponseEntity<Long>(favoriteService.AddFavorite(favorite),HttpStatus.OK);
 	}
 	

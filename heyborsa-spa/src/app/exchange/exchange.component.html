@@ -12,8 +12,8 @@
 
                                 <div class="box-tools">
                                     <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="table_search" class="form-control pull-right"
-                                            placeholder="Search">
+                                        <input type="text" [(ngModel)]="searchText" name="table_search" class="form-control pull-right"
+                                            placeholder="Ara">
 
                                         <div class="input-group-btn">
                                             <button type="submit" class="btn btn-default"><i
@@ -35,12 +35,12 @@
                                                 <th>Güncelleme</th>
                                                 <th *ngIf="isLogged">Favori</th>
                                             </tr>
-                                            <tr *ngFor="let _exchange of data">
+                                            <tr *ngFor="let _exchange of data |  searchV2 : searchText">
                                                 <td>{{_exchange.name}}</td>
                                                 <td>{{_exchange.price}}</td>
                                                 <td>{{_exchange.change}} </td>
                                                 <td>{{_exchange.volume}}</td>
-                                                <td><span class="label label-danger">Pending</span></td>
+                                                <td> <span class="text-muted"><i class="fa fa-clock-o"></i> 20/05/2019 </span></td>
                                                 <th *ngIf="isLogged"><label class="toggler toggler-danger font-size-16">
                                                     <input (click)="removeFavorite(_exchange.name,_exchange.favoriteId)" *ngIf="_exchange.isFavorite==1" type="checkbox" checked="">
                                                     <input (click)="addFavorite(_exchange.name)" *ngIf="_exchange.isFavorite==0" type="checkbox" >

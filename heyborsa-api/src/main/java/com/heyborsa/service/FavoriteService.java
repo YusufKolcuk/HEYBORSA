@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.heyborsa.dao.FavoriteDAO;
-import com.heyborsa.dao.FavoriteProccessDTO;
 import com.heyborsa.dto.FavoriteDTO;
+import com.heyborsa.dto.FavoriteProccessDTO;
 import com.heyborsa.entity.Favorite;
 
 @Service

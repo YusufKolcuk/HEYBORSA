@@ -57,5 +57,22 @@ public class UserDAO {
 		}
 	}
 	
+	public User GetUserByEmail(String email)
+	{
+
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM User WHERE email=:email")
+				.setString("email",email);
+		User user = null;
+		try {
+			user = (User) query.getSingleResult();
+			return user;
+		}catch(javax.persistence.NoResultException e)
+		{
+			return user;
+		}
+	}
+	
+	
+	
 	
 }

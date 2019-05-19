@@ -31,6 +31,20 @@ public class QuestionDAO {
 		sessionFactory.getCurrentSession().update(sorular);
 	}
 	
+	public List<Question> GetAll()
+	{
+		List<Question> soru = null;
+		try {
+			Query query = sessionFactory.getCurrentSession().createQuery("FROM Question");
+			soru = (List<Question>) query.getResultList();
+			return soru;
+		}
+		catch(NoResultException e)
+		{
+			return (List<Question>)soru;
+		}
+	}
+	
 	public void Delete(Question sorular)
 	{
 		sessionFactory.getCurrentSession().delete(sorular);
@@ -63,6 +77,37 @@ public class QuestionDAO {
 			return (Question)soru;
 		}
 	}
+	
+	public boolean ValidateQuestion(Long user_id, Long question_id)
+	{
+		try {
+			Query query = sessionFactory.getCurrentSession().createQuery("FROM Question WHERE user_id=:user_id AND id=:question_id")
+					.setLong("user_id", user_id)
+					.setLong("question_id", question_id);
+			if(query.getSingleResult() != null)
+				return true;
+			return false;
+		}catch(NoResultException e)
+		{
+			return false;
+		}
+	}
+	
+	public List<Question> getOpenedeQuestions()
+	{
+		 List<Question> questions = null;
+		try {
+			Query query = sessionFactory.getCurrentSession().createQuery("FROM Question WHERE status=:status")
+					.setString("status", "waiting");
+			questions = query.getResultList();
+			return questions;
+		}catch(NoResultException e)
+		{
+			return questions;
+		}
+	}
+	
+
 	
 	
 

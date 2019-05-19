@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,7 +11,8 @@ export class SidebarComponent implements OnInit {
   data: any;
   token: any;
   isLogged:any;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+              private router:Router) { }
 
   ngOnInit() {
     this.token = localStorage.getItem("Token");
@@ -27,6 +29,11 @@ export class SidebarComponent implements OnInit {
   {
     localStorage.removeItem("Token");
     
+  }
+
+  login()
+  {
+   this.router.navigateByUrl("/login"); 
   }
 
 }

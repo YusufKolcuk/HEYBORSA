@@ -3,25 +3,40 @@
   <section class="sidebar">
     <!-- Sidebar user panel -->
     <div *ngIf="isLogged" class="user-panel">
-   <div class="ulogo">
-     <a href="index.html">
-      <!-- logo for regular state and mobile devices -->
-      <span><b>HEY </b>BORSA</span>
-    </a>
-  </div>
+      <div class="ulogo">
+        <a href="index.html">
+          <!-- logo for regular state and mobile devices -->
+          <span><b>HEY </b>BORSA</span>
+        </a>
+      </div>
       <div class="image">
         <img src="../../assets/images/user2-160x160.jpg" class="rounded-circle" alt="User Image">
       </div>
       <div class="info">
         <p>{{data.first_name}} {{data.last_name}}</p>
-          <a href="" (click)="logout()" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ion ion-power"></i></a>
+        <a href="" (click)="logout()" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
+            class="ion ion-power"></i></a>
+      </div>
+    </div>
+
+    <div *ngIf="isLogged==false" class="user-panel">
+      <div class="ulogo">
+        <a href="index.html">
+          <!-- logo for regular state and mobile devices -->
+          <span><b>HEY </b>BORSA</span>
+        </a>
+      </div>
+      <div class="info">
+        <p>GİRİŞ</p>
+        <a href="" routerLink="/login" class="link" data-toggle="tooltip" title="" data-original-title="Login"><i
+            class="ion ion-power"></i></a>
       </div>
     </div>
     <!-- sidebar menu -->
     <ul class="sidebar-menu" data-widget="tree">
-  <li class="nav-devider"></li>
+      <li class="nav-devider"></li>
       <li class="active">
-        <a [routerLink] = "['/']">
+        <a [routerLink]="['/']">
           <i class="icon-home"></i> <span>Anasayfa</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-right pull-right"></i>
@@ -30,49 +45,49 @@
       </li>
 
       <li class="active">
-          <a [routerLink] = "['/currency']">
-            <i class="icon-home"></i> <span>Döviz</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-        </li>
+        <a [routerLink]="['/currency']">
+          <i class="icon-home"></i> <span>Döviz</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+      </li>
 
-        <li class="active">
-            <a [routerLink] = "['/gold']">
-              <i class="icon-home"></i> <span>Altın</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-right pull-right"></i>
-              </span>
-            </a>
-          </li>
+      <li class="active">
+        <a [routerLink]="['/gold']">
+          <i class="icon-home"></i> <span>Altın</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+      </li>
 
-        <li class="active">
-            <a [routerLink] = "['/exchange']">
-              <i class="icon-home"></i> <span>Borsa</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-right pull-right"></i>
-              </span>
-            </a>
-          </li>
-  <li class="nav-devider"></li>
-         <li *ngIf="isLogged" class="active">
-            <a [routerLink] = "['/questions']">
-              <i class="icon-home"></i> <span>Sorularım</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-right pull-right"></i>
-              </span>
-            </a>
-          </li>
+      <li class="active">
+        <a [routerLink]="['/exchange']">
+          <i class="icon-home"></i> <span>Borsa</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+      </li>
+      <li class="nav-devider"></li>
+      <li *ngIf="isLogged" class="active">
+        <a [routerLink]="['/questions']">
+          <i class="icon-home"></i> <span>Sorularım</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+      </li>
 
-          <li *ngIf="isLogged" class="active">
-              <a [routerLink] = "['/favorites']">
-                <i class="icon-home"></i> <span>Favorilerim</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-right pull-right"></i>
-                </span>
-              </a>
-            </li>
+      <li *ngIf="isLogged" class="active">
+        <a [routerLink]="['/favorites']">
+          <i class="icon-home"></i> <span>Favorilerim</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+      </li>
     </ul>
   </section>
 </aside>

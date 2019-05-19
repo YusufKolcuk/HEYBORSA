@@ -9,27 +9,22 @@
     
         <form  class="form-element">
           <div class="form-group has-feedback">
-            <input type="email"  [(ngModel)] = 'email' [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Email">
+            <input type="email"  [(ngModel)] = 'email' [ngModelOptions]="{standalone: true}" class="form-control" required placeholder="E-posta">
             <span class="ion ion-email form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" [(ngModel)] = 'password' [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Parola">
+            <input type="password" [(ngModel)] = 'password' [ngModelOptions]="{standalone: true}" class="form-control" required placeholder="Parola">
             <span class="ion ion-locked form-control-feedback"></span>
           </div>
           <div class="row">
-            <div class="col-6">
-              <div class="checkbox">
-                <input type="checkbox" id="basic_checkbox_1" >
-          <label for="basic_checkbox_1">Beni Hatırla</label>
-              </div>
-            </div>
+            
             <!-- /.col -->
-            <div class="col-6">
-             <div class="fog-pwd">
-                <a [routerLink] = "['/resetpassword']"><i class="ion ion-locked"></i> Şifremi Unuttum</a><br>
-              </div>
-            </div>
+          
             <!-- /.col -->
+            <div *ngIf="badlogin" class="col-12 text-center alert alert-danger">
+                  <span style="color:black">HATALI GİRİŞ</span> 
+            </div>
+
             <div class="col-12 text-center">
               <button  (click) = "login()" class="btn btn-info btn-block margin-top-10">GİRİŞ</button>
             </div>
@@ -42,7 +37,7 @@
           <a href="#" class="btn btn-social-icon btn-circle btn-facebook"><i class="fa fa-facebook"></i></a>
           <a href="#" class="btn btn-social-icon btn-circle btn-google"><i class="fa fa-google-plus"></i></a>
         </div>
-    
+        
         <div class="margin-top-30 text-center">
           <p>Hesabınız Yok mu ?<a [routerLink] = "['/register']" class="text-info m-l-5"> Kayıt Ol</a></p>
         </div>

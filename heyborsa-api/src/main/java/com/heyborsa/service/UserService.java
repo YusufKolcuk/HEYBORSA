@@ -26,4 +26,14 @@ public class UserService {
 	public User login(LoginDTO loginDTO) {
 		return userDAO.Login(loginDTO);
 	}
+	
+	public User GetUserByEmail(String email)
+	{
+		return userDAO.GetUserByEmail(email);
+	}
+	
+	public void Update(User user)
+	{
+		userDAO.Update(user);
+	}
 }

@@ -35,8 +35,8 @@
                     <div *ngFor="let _answer of answer">
                       <div *ngIf="_answer.fu_id != 0" class="direct-chat-msg mb-30">
                         <div class="clearfix mb-15">
-                          <span class="direct-chat-name">{{_answer.fu_id}}</span>
-                          <span class="direct-chat-timestamp pull-right">{{_answer.date}} </span>
+                          <span class="direct-chat-name">Finans Uzmanı</span>
+                          <span class="direct-chat-timestamp pull-right">{{dateFormat(_answer.date)}} </span>
                         </div>
                         <!-- /.direct-chat-info -->
                         <img class="direct-chat-img avatar" src="../../assets/images/user1-128x128.jpg"
@@ -51,8 +51,8 @@
                       
                       <div *ngIf="_answer.fu_id == 0" class="direct-chat-msg right mb-30">
                         <div class="clearfix mb-15">
-                          <span class="direct-chat-name pull-right">{{_answer.fu_id}}</span>
-                          <span class="direct-chat-timestamp ">{{_answer.date}}</span>
+                          <span class="direct-chat-name pull-right">{{user.first_name}} {{user.last_name}}</span>
+                          <span class="direct-chat-timestamp ">{{dateFormat(_answer.date)}}</span>
                         </div>
                         <!-- /.direct-chat-info -->
                         <img class="direct-chat-img avatar" src="../../assets/images/user3-128x128.jpg"

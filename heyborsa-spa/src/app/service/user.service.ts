@@ -23,4 +23,9 @@ export class UserService {
     return this.httpClient.post(this.url + "register",data);
   }
 
+  verify(key:any)
+  {
+    return this.httpClient.get(this.url + "verifyemail?key=" +key);
+  }
+
 }

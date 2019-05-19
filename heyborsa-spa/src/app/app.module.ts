@@ -30,6 +30,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NewQuestionComponent } from './newquestion/newquestion.component';
 import { FuPanelComponent } from './fu-panel/fu-panel.component';
 import { FuPanelContentComponent } from './fu-panel-content/fu-panel-content.component';
+import localeEN from "@angular/common/locales/en";
+import { SearchPipe } from './search.pipe';
+import { VerifyComponent } from './verify/verify.component';
+import { SearchV2Pipe } from './search-v2.pipe';
 
 
 @NgModule({
@@ -53,6 +57,9 @@ import { FuPanelContentComponent } from './fu-panel-content/fu-panel-content.com
     NewQuestionComponent,
     FuPanelComponent,
     FuPanelContentComponent,
+    SearchPipe,
+    VerifyComponent,
+    SearchV2Pipe,
   ],
   imports: [
     BrowserModule,
@@ -63,4 +70,6 @@ import { FuPanelContentComponent } from './fu-panel-content/fu-panel-content.com
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }

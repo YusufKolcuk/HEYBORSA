@@ -25,7 +25,7 @@
 					<div class="col-md-6 col-lg-3 col-xlg-3">
 						<div class="box box-inverse box-info pull-up bg-hexagons-dark">
 							<div class="box-body text-center">
-								<h1 class="font-light text-white">2,064</h1>
+								<h1 class="font-light text-white">{{totalQuestions}}</h1>
 								<h6 class="text-white mb-10">Sorularım</h6>
 							</div>
 						</div>
@@ -34,7 +34,7 @@
 					<div class="col-md-6 col-lg-3 col-xlg-3">
 						<div class="box box-success box-inverse pull-up bg-hexagons-dark">
 							<div class="box-body text-center">
-								<h1 class="font-light text-white">1,738</h1>
+								<h1 class="font-light text-white">{{answeredQuestions}}</h1>
 								<h6 class="text-white mb-10">Cevaplanmış</h6>
 							</div>
 						</div>
@@ -43,7 +43,7 @@
 					<div class="col-md-6 col-lg-3 col-xlg-3">
 						<div class="box box-inverse box-danger pull-up bg-hexagons-dark">
 							<div class="box-body text-center">
-								<h1 class="font-light text-white">1100</h1>
+								<h1 class="font-light text-white">{{resolvedQuestions}}</h1>
 								<h6 class="text-white mb-10">Çözülmüş</h6>
 							</div>
 						</div>
@@ -52,7 +52,7 @@
 					<div class="col-md-6 col-lg-3 col-xlg-3">
 						<div class="box box-inverse box-dark pull-up bg-hexagons-white">
 							<div class="box-body text-center">
-								<h1 class="font-light text-white">964</h1>
+								<h1 class="font-light text-white">{{waitingQuestions}}</h1>
 								<h6 class="text-white mb-10">Cevap Bekleniyor</h6>
 							</div>
 						</div>
@@ -101,10 +101,12 @@
 														{{question.subject}}
 													</td>
 													<td><a routerLink="/questions/{{question.id}}">{{question.header}}</a></td>
-													<td>{{question.status}}</td>
-													<td><span class="label label-warning">{{question.date}}</span> </td>
+													<td *ngIf="question.status == 'waiting'">Cevap Bekliyor</td>
+													<td *ngIf="question.status == 'answered'">Cevap Verildi</td>
+													<td *ngIf="question.status == 'resolved'">Çözülmüş</td>
+													<td><span class="label label-warning">{{dateFormat(question.date)}}</span> </td>
 													<td>
-														<button type="button" class="btn btn-sm btn-danger-outline"
+														<button type="button" (click)="deleteQuestion(question)" class="btn btn-sm btn-danger-outline"
 															data-toggle="tooltip" data-original-title="Delete"><i
 																class="ti-trash" aria-hidden="true"></i></button>
 													</td>

@@ -21,48 +21,105 @@ export class GoldComponent implements OnInit {
   token:any;
   isLogged:any;
   id:any;
+  searchText:any="";
   ngOnInit() {
     this.data = [
       {
         "name": "GRAM ALTIN",
-        "selling_price": "254",
-        "buying_price": "254",
-        "date": "111",
+        "selling_price": "254,45",
+        "buying_price": "254,10",
+        "date": "20/05/2019 09:45",
         "isFavorite": 0,
         "favoriteId": 0
       },
       {
         "name": "ÇEYREK ALTIN",
-        "selling_price": "414",
-        "buying_price": "404",
-        "date": "111",
+        "selling_price": "414,23",
+        "buying_price": "404,12",
+        "date": "20/05/2019 09:45",
         "isFavorite": 0,
         "favoriteId": 0
       },
       {
         "name": "TAM ALTIN",
-        "selling_price": "827",
-        "buying_price": "806",
-        "date": "111",
+        "selling_price": "827,05",
+        "buying_price": "806,12",
+        "date": "20/05/2019 09:45",
         "isFavorite": 0,
         "favoriteId": 0
       },
       {
         "name": "CUMHURIYET ALTIN",
-        "selling_price": "1700",
-        "buying_price": "1675",
-        "date": "111",
+        "selling_price": "1.700,21",
+        "buying_price": "1.675,92",
+        "date": "20/05/2019 09:45",
         "isFavorite": 0,
         "favoriteId": 0
       },
       {
         "name": "ALTIN (ONS)",
-        "selling_price": "1399",
-        "buying_price": "1375",
-        "date": "111",
+        "selling_price": "1.399,45",
+        "buying_price": "1.375,32",
+        "date": "20/05/2019 09:45",
         "isFavorite": 0,
         "favoriteId": 0
-      }
+      },
+      {
+        "name": "ATA ALTIN",
+        "selling_price": "1.680,23",
+        "buying_price": "1.639,37",
+        "date": "20/05/2019 09:45",
+        "isFavorite": 0,
+        "favoriteId": 0
+      },
+      {
+        "name": "14 AYAR ALTIN",
+        "selling_price": "141,67",
+        "buying_price": "141,58",
+        "date": "20/05/2019 09:45",
+        "isFavorite": 0,
+        "favoriteId": 0
+      },
+      {
+        "name": "18 AYAR ALTIN",
+        "selling_price": "181,44",
+        "buying_price": "181,32",
+        "date": "20/05/2019 09:45",
+        "isFavorite": 0,
+        "favoriteId": 0
+      },
+      {
+        "name": "22 AYAR BILEZIK",
+        "selling_price": "226,68",
+        "buying_price": "226,53",
+        "date": "20/05/2019 09:45",
+        "isFavorite": 0,
+        "favoriteId": 0
+      },
+      {
+        "name": "IKI BUÇUK ALTIN",
+        "selling_price": "4.036,54",
+        "buying_price": "3.974,24",
+        "date": "20/05/2019 09:45",
+        "isFavorite": 0,
+        "favoriteId": 0
+      },
+      {
+        "name": "BESLI ALTIN",
+        "selling_price": "8.078,06",
+        "buying_price": "7.923,65",
+        "date": "20/05/2019 09:45",
+        "isFavorite": 0,
+        "favoriteId": 0
+      },
+      {
+        "name": "GREMSE ALTIN",
+        "selling_price": "4.063,88",
+        "buying_price": "3.974,24",
+        "date": "20/05/2019 09:45",
+        "isFavorite": 0,
+        "favoriteId": 0
+      },
     ]
 
     this.token = localStorage.getItem("Token");

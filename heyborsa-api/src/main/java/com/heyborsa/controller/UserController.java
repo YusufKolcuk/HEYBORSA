@@ -1,9 +1,11 @@
 package com.heyborsa.controller;
 
 
+import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 import java.util.Date;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,8 +27,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.heyborsa.dto.LoginDTO;
 import com.heyborsa.dto.RegisterDTO;
 import com.heyborsa.entity.User;
+import com.heyborsa.entity.Verify;
 import com.heyborsa.security.Encryption;
+import com.heyborsa.service.MailService;
 import com.heyborsa.service.UserService;
+import com.heyborsa.service.VerifyService;
+
 
 
 
@@ -36,6 +42,11 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired 
+	private MailService mailService;
+	
+	@Autowired
+	private VerifyService verifyService;
 	
 	@RequestMapping(value = "/add",method = RequestMethod.POST)
 	@ResponseBody
@@ -69,6 +80,15 @@ public class UserController {
 		_user.setDate(date);
 		_user.setActive(active);
 		_user.setUser_type(user_type);
+		String key = UUID.randomUUID().toString();
+		verifyService.insert(registerDTO.getEmail(), date,key);
+		try {
+			mailService.RegisterMail(registerDTO.getFirst_name(),registerDTO.getLast_name(),key,registerDTO.getEmail());
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return new ResponseEntity<Long>(userService.register(_user),HttpStatus.OK);
 	}
 	
@@ -77,6 +97,7 @@ public class UserController {
 	@RequestMapping(value="/login",method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<User> login(@RequestBody LoginDTO loginDTO){
+		
 		return new ResponseEntity<User>(userService.login(loginDTO),HttpStatus.OK);
 	}
 	
@@ -96,6 +117,27 @@ public class UserController {
 		return new ResponseEntity<User>(userService.login(loginDTO),HttpStatus.OK);
 	}
 	
-	 
+	/*
+	 * 
+	 * Key i alýp o keye ait olan kullanýcýnýn aktifliðini true yapýyoruz
+	 * true yaptýktan sonra o verify entitysini siliyoruz
+	 * 
+	 */
+	
+	@CrossOrigin
+	@RequestMapping(value="/verifyemail",method = RequestMethod.GET)
+	@ResponseBody
+	public boolean login(@RequestParam String key){
+		Verify verify = verifyService.getByKey(key);
+		if(verify == null)
+			return false;
+		User user = userService.GetUserByEmail(verify.getEmail());
+		if(user == null)
+			return false;
+		user.setActive(true);
+		userService.Update(user);
+		verifyService.Delete(verify);
+		return true;
+	} 
 }
  

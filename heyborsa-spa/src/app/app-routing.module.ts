@@ -14,6 +14,7 @@ import { QuestionContentComponent } from './question_content/question_content.co
 import { NewQuestionComponent } from './newquestion/newquestion.component';
 import { FuPanelComponent } from './fu-panel/fu-panel.component';
 import { FuPanelContentComponent } from './fu-panel-content/fu-panel-content.component';
+import { VerifyComponent } from './verify/verify.component';
 
 const routes: Routes = [
   {path:"",component:HomepageComponent,pathMatch:"full"},
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path:"favorites",component:FavoritesComponent},
   {path:"newquestion",component:NewQuestionComponent},
   {path:"fu-panel",component:FuPanelComponent},
-  {path:"fu-panel/question/:id",component:FuPanelContentComponent}
+  {path:"fu-panel/question/:id",component:FuPanelContentComponent},
+  {path:"verifyemail/:key",component:VerifyComponent}
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-package com.heyborsa.dao;
+package com.heyborsa.dto;
 
 public class FavoriteProccessDTO {
 	private Long user_id;

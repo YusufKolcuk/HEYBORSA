@@ -12,11 +12,7 @@
 
                 <div class="box-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                    <div class="input-group-btn">
-                      <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                    </div>
+                    <input type="text" [(ngModel)]="searchText" name="table_search" class="form-control pull-right" placeholder="Ara">
                   </div>
                 </div>
               </div>
@@ -36,12 +32,12 @@
                     </thead>
                     <tbody>
                       
-                      <tr *ngFor = "let gold of data">
+                      <tr *ngFor = "let gold of data |  searchV2 : searchText">
                         <td>{{gold.name}}</td>
                         <td> {{gold.selling_price}} ₺</td>
                         <td> {{gold.buying_price}} ₺</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> </span> </td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> </span> </td>
+                        <td>%1</td>
+                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> {{gold.date}} </span> </td>
                         <td *ngIf="isLogged"><label class="toggler toggler-danger font-size-16">
                           <input (click)="removeFavorite(gold.name,gold.favoriteId)" *ngIf="gold.isFavorite==1" type="checkbox" checked="">
                           <input (click)="addFavorite(gold.name)" *ngIf="gold.isFavorite==0" type="checkbox">

@@ -18,15 +18,15 @@
                   <table class="table table-hover">
                    <tbody>
                      <tr>
-                        <th></th>
+                        <th>Döviz</th>
                         <th>Tarih</th>
                         <th>Sil</th>
                       </tr>
                       <tr *ngFor="let currency of currencyData">
                         <td>{{currency.favorite_data}}</td>
-                        <td>{{currency.created_time}}</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
-                  
+                        <td>{{dateFormat(currency.created_time)}}</td>
+                        <td><button (click)="removeCurrencyFavorite(currency)" class="btn btn-danger">Sil</button></td>
+                        
                       </tr>
             
                     </tbody>
@@ -66,8 +66,8 @@
                       </tr>
                       <tr *ngFor="let gold of goldData">
                         <td>{{gold.favorite_data}}</td>
-                        <td>{{gold.created_time}}</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16, 2017</span> </td>
+                        <td>{{dateFormat(gold.created_time)}}</td>
+                        <td><button (click)="removeGoldFavorite(gold)" class="btn btn-danger">Sil</button> </td>
                       </tr>
                      
                     </tbody>
@@ -101,9 +101,8 @@
                       </tr>
                       <tr *ngFor="let exchange of exchangeData">
                         <td>{{exchange.favorite_data}}</td>
-                        <td>{{exchange.created_time}}</td>
-                        <td><span class="text-muted"><i class="fa fa-clock-o"></i> Oct 16,
-                            2017</span> </td>
+                        <td>{{dateFormat(exchange.created_time)}}</td>
+                        <td><button (click)="removeExchangeFavorite(exchange)" class="btn btn-danger">Sil</button></td>
                       </tr>
                     </tbody>
                   </table>

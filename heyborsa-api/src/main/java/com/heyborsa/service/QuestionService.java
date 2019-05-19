@@ -26,11 +26,24 @@ public class QuestionService {
 	public void delete(Question question) {
 		questionDAO.Delete(question);
 			}
+	public List<Question> GetAll()
+	{
+		return (List<Question>) questionDAO.GetAll();
+	}
 	public List<Question> ReadByUserId(int userid)
 	{
 		return (List<Question>) questionDAO.ReadByUserId(userid);
 	}
 	public Question ReadByQuestionId(int questionid) {
-		return (Question) questionDAO.ReadByUserId(questionid);
+		return (Question) questionDAO.ReadByQuestionId(questionid);
+	}
+	public boolean ValidateQuestion(Long user_id, Long question_id)
+	{
+		return (boolean) questionDAO.ValidateQuestion(user_id, question_id);
+	}
+	
+	public List<Question> getOpenedeQuestions()
+	{
+		return (List<Question>) questionDAO.getOpenedeQuestions();
 	}
 }

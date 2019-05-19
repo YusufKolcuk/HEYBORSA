@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./currency.component.css']
 })
 export class CurrencyComponent implements OnInit {
+  constructor(private marketService:MarketService,
+    private userService:UserService,
+    private router:Router) { }
   currency:any;
   base:any;
   currencies:any = [];
@@ -16,11 +19,11 @@ export class CurrencyComponent implements OnInit {
   user:any;
   token:any;
   isLogged:any;
-  constructor(private marketService:MarketService,
-              private userService:UserService,
-              private router:Router) { }
+  currencyText:any = "";
+  
   
   ngOnInit() {
+   
 
     this.token = localStorage.getItem("Token");
     this.isLogged = false;
@@ -60,7 +63,7 @@ export class CurrencyComponent implements OnInit {
               }
             this.currencies.push(
               {
-                "currencyname" : Object.keys(this.currency)[i],
+                "name" : Object.keys(this.currency)[i],
                 "value" : this.base / this.currency[Object.keys(this.currency)[i]],
                 "isFavorite" : isFavorite,//0
                 "id" : favoriteId
@@ -74,7 +77,7 @@ export class CurrencyComponent implements OnInit {
           {
             this.currencies.push(
               {
-                "currencyname" : Object.keys(this.currency)[i],
+                "name" : Object.keys(this.currency)[i],
                 "value" : this.base / this.currency[Object.keys(this.currency)[i]],
               }
             )    
@@ -85,6 +88,7 @@ export class CurrencyComponent implements OnInit {
       
 
     });
+    console.log(this.currencyText);
   }
 
   addFavorite(currencyName)

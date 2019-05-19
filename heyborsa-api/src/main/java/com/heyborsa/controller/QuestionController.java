@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.heyborsa.dto.AnswerDTO;
 import com.heyborsa.dto.QuestionDTO;
+import com.heyborsa.dto.ValidateQuestionDTO;
 import com.heyborsa.entity.Answer;
 import com.heyborsa.entity.Question;
 import com.heyborsa.service.AnswerService;
@@ -36,7 +37,7 @@ public class QuestionController {
 	@CrossOrigin
 	@RequestMapping(value="/add",method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<Long> ekle(@RequestBody QuestionDTO questionDTO){
+	public ResponseEntity<Long> add(@RequestBody QuestionDTO questionDTO){
 		
 		Question soru = new Question();
 		soru.setHeader(questionDTO.getHeader());
@@ -49,11 +50,27 @@ public class QuestionController {
 	}
 	
 	@CrossOrigin
+	@RequestMapping(value="/delete",method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity delete(@RequestBody Question question){
+		questionService.delete(question);
+		return new ResponseEntity(HttpStatus.OK);
+	}
+	
+	@CrossOrigin
 	@RequestMapping(value="/get",method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<List<Question>> get(@RequestParam("id") int id){
 		
 		return new ResponseEntity<List<Question>>(questionService.ReadByUserId(id),HttpStatus.OK);
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value="/getall",method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<List<Question>> getAll(){
+		
+		return new ResponseEntity<List<Question>>(questionService.GetAll(),HttpStatus.OK);
 	}
 	
 	@CrossOrigin
@@ -76,8 +93,33 @@ public class QuestionController {
 		answer.setDate(date);
 		answer.setQuestion_id(answerDTO.getQuestion_id());
 		
+		Question question = questionService.ReadByQuestionId((int)answerDTO.getQuestion_id());
+		question.setStatus("waiting");
+		questionService.update(question);
+		
 		return new ResponseEntity<Long>(answerService.addAnswerWithUser(answer),HttpStatus.OK);
 	}
+	
+	@CrossOrigin
+	@RequestMapping(value="/addwithfu",method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<Long> sendAnswerWithFu(@RequestBody AnswerDTO answerDTO)
+	{
+		Date date=new Date(System.currentTimeMillis());
+		Answer answer = new Answer();
+		answer.setAnswer(answerDTO.getMessage());
+		answer.setFu_id(1l);
+		answer.setDate(date);
+		answer.setQuestion_id(answerDTO.getQuestion_id());
+		
+		Question question = questionService.ReadByQuestionId((int)answerDTO.getQuestion_id());
+		question.setStatus("answered");
+		questionService.update(question);
+		
+		return new ResponseEntity<Long>(answerService.addAnswerWithUser(answer),HttpStatus.OK);
+	}
+	
+	
 	
 	@CrossOrigin
 	@RequestMapping(value = "getanswerbyid",method = RequestMethod.GET)
@@ -86,5 +128,24 @@ public class QuestionController {
 	{
 		return new ResponseEntity<Answer>(answerService.getAnswerById(id),HttpStatus.OK);
 	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "validatequestion",method = RequestMethod.POST)
+	@ResponseBody
+	public boolean validateQuestion(@RequestBody ValidateQuestionDTO validateQuestionDTO)
+	{
+		return questionService.ValidateQuestion(
+				validateQuestionDTO.getUser_id(),validateQuestionDTO.getQuestion_id());
+	}
+	
+	@CrossOrigin
+	@RequestMapping(value = "getopenedquestions",method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<List<Question>> getOpenedQuestions()
+	{
+		return new ResponseEntity<List<Question>>(questionService.getOpenedeQuestions(),HttpStatus.OK);
+	}
+	
+	
 	
 }
